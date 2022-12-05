@@ -88,7 +88,7 @@ def signUpWithFirebase(name, email, pwd):
 
 # Products Functions
 
-
+#show products with logic
 def showProducts():
     print("show products")
 
@@ -201,6 +201,12 @@ def createProduct():
     }
     createProductWithFirebase(newProduct)
 
+def deleteProduct():
+    print("delete product")
+
+def analizeProduct():
+    print("delete product")
+
 # Product analysis functions
 # ---- Get total cost Per Person
 def getTotalCostPerPerson(numberOfPersons, fixedCosts, variableCosts):
@@ -211,16 +217,7 @@ def getTotalCostPerPerson(numberOfPersons, fixedCosts, variableCosts):
     # sum variableCosts
     for costUnit in variableCosts:
         total = total +  float(costUnit['cost']) * numberOfPersons   
-    return total
-
-
-
-def deleteProduct():
-    print("delete product")
-
-
-def analizeProduct():
-    print("delete product")
+    return total/numberOfPersons
 
 # Products services
 def createProductWithFirebase(newProduct):
