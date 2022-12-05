@@ -10,9 +10,9 @@ run python3 main.py
 
 
 
-*** Database  Collections ***
+*** Database  Collection ***
 Users Collection
-{
+[
 	"UserID1":
 	{
 		"name": "Kevin Morales",
@@ -37,4 +37,48 @@ Users Collection
 		"email": "leo@gmail.com",
 		"password": "prueba12345"
 	},
-}
+]
+
+*** Products Collection ***
+
+[
+	{
+		"name":"Work in Korea",
+		"description:"Service to help people to find a job in South Korea legally"
+		"target": "Adults",
+		"fixCost":[{
+			"costName":"",
+			"costDescription":"",
+			"cost":"",
+			"quantity":""
+		}, {
+			"costName":"",
+			"costDescription":"",
+			"cost":"",
+			"quantity":""
+		}, {
+			"costName":"",
+			"costDescription":"",
+			"cost":"",
+			"quantity":""
+		}],
+		"variableCosts":[{
+			"costName":"",
+			"costDescription":"",
+			"cost":"",
+			"quantity":""
+		}, {
+			"costName":"",
+			"costDescription":"",
+			"cost":"",
+			"quantity":""
+		}, {
+			"costName":"",
+			"costDescription":"",
+			"cost":"",
+			"quantity":""
+		}],
+		"totalCostPerPerson":"",
+		"minimunPersonsForProfit":""
+	}
+]
