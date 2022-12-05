@@ -90,7 +90,11 @@ def signUpWithFirebase(name, email, pwd):
 
 #show products with logic
 def showProducts():
-    print("show products")
+    print()
+    print("Available Products")
+    print(f"************************")
+    print()
+    getProductsWithFirebase()
 
 #Create product with logic
 def createProduct():
@@ -229,6 +233,23 @@ def createProductWithFirebase(newProduct):
     print("Product created successfully!")
     print("*****************************")
     print()
+
+def getProductsWithFirebase():
+    print(f"Getting... Products")
+    # consult products database
+    productsDatabase = refProducts.get()
+    i=0
+    for key, value in productsDatabase.items():
+        print("****************************")
+        print(f"{i + 1}. {value['name']}")
+        print(f"Description")
+        print(f"{value['description']}")
+        print(f"Target: {value['target']}")
+        print(f"Total cost per person: {value['totalCostPerPerson']}")
+        print(f"Minimum Persons: {value['minimunPersons']}")
+        i = i + 1
+        
+    
 
 #First menu, includes login
 def startMenu():
