@@ -67,7 +67,6 @@ def loginWithFirebase(user, pwd):
             print()
             return value
     print("Invalid credentials, try again...")
-    print("value", value)
     return 'No'
 
 
@@ -95,7 +94,6 @@ def showProducts():
     print(f"************************")
     print()
     getProductsWithFirebase()
-
 #Create product with logic
 def createProduct():
     print()
@@ -117,13 +115,13 @@ def createProduct():
         if targetOp == "1":
             target = "Adults"
             targetStatus = False
-        elif target == "2":
+        elif targetOp == "2":
             target == "Young"
             targetStatus = False
-        elif target == "3":
+        elif targetOp == "3":
             target == "Childern"
             targetStatus = False
-        elif target == "4":
+        elif targetOp == "4":
             target == "All"
             targetStatus = False
         else:
@@ -204,13 +202,39 @@ def createProduct():
         
     }
     createProductWithFirebase(newProduct)
-
+#Delete product with logic
 def deleteProduct():
-    print("delete product")
+    products = getProductsWithFirebase()
+    productsDatabase = refProducts.get()
+    op = str(input("Choose the number to delete a product:"))
+    #TO DO: handle error
+    print("Deleting product")
+    for key, val in productsDatabase.items():
+        if val['name'] == products[int(op)-1]['name']:
+            refProducts.child(key).set({})
+    print()        
+    print("The product was deleted sucessfully!")
+    print('**************************************')
+    print()
 
+#analize determined customers  
 def analizeProduct():
-    print("delete product")
-
+    print("Product Analysis")
+    productsDatabase = getProductsWithFirebase()
+    option = str(input("Choose the product: "))
+    print("What operation do you want to do")
+    print("1. Get the minimum customers to get a determined profit.")
+    op = str(input("Choose the option: "))
+    profit = str(input("Write the desired profit (USD): "))
+    if op == '1':
+        print()
+        print("This is the analysis")
+        print(productsDatabase[int(option)-1]['totalCostPerPerson'])
+        print(f"This is the minimum customers: {(float(profit)/float(productsDatabase[int(option)-1]['totalCostPerPerson'])):.2f} in order to get {profit} USD") 
+    else:
+        errorInvalidOption()
+        analizeProduct()
+    
 # Product analysis functions
 # ---- Get total cost Per Person
 def getTotalCostPerPerson(numberOfPersons, fixedCosts, variableCosts):
@@ -238,6 +262,8 @@ def getProductsWithFirebase():
     print(f"Getting... Products")
     # consult products database
     productsDatabase = refProducts.get()
+    #return an array
+    productsArray = []
     i=0
     for key, value in productsDatabase.items():
         print("****************************")
@@ -248,7 +274,8 @@ def getProductsWithFirebase():
         print(f"Total cost per person: {value['totalCostPerPerson']}")
         print(f"Minimum Persons: {value['minimunPersons']}")
         i = i + 1
-        
+        productsArray.append(value)
+    return productsArray   
     
 
 #First menu, includes login
