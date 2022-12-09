@@ -47,10 +47,16 @@ NIJLfM3DjXH0PSGBPy = {
 
 def test_getTotalCostPerPerson():
     assert getTotalCostPerPerson(numPersons, fixedCosts, variableCosts) == 2870
+
 def test_loginWithFirebase():
     #Negative Result
     assert loginWithFirebase(NIJLfM3DjXH0PSGBPy['email'], "incorrectpwd") == 'No'
     #Positive Result
     assert loginWithFirebase(NIJLfM3DjXH0PSGBPy['email'],NIJLfM3DjXH0PSGBPy['pwd'] ) == NIJLfM3DjXH0PSGBPy
+
+def test_isValidEmail():
+    assert isValid("fakeemail") == False
+    assert isValid("truemeail@gmail.com") == True
+    assert isValid("almostTru@gmail") == False
 
 pytest.main(["-v", "--tb=line", "-rN", __file__])

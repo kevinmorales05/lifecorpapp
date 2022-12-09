@@ -10,6 +10,8 @@ import firebase_admin
 from firebase_admin import credentials
 # import db from firebase in order to implement reading
 from firebase_admin import db
+# import python module for regular expressions
+import re
 #configure and initializafirebase
 cred = credentials.Certificate(
     "./config/byu-cs111-firebase-adminsdk-ve0lu-d5670a8f24.json")
@@ -37,12 +39,17 @@ def login():
 
 
 def signUp():
+    pwd = ""
     print()
     print("Create a new account")
     print(f"************************")
     name = str(input("Write your name please: "))
     email = str(input("Write your email address: "))
-    pwd = str(input("Write your password: "))
+    if isValid(email) == True:
+        pwd = str(input("Write your password: "))
+    else:
+        print("The format of the email is incorrect, try again!")
+        signUp()
     signUpWithFirebase(name, email, pwd)
 
 
@@ -276,7 +283,10 @@ def getProductsWithFirebase():
         i = i + 1
         productsArray.append(value)
     return productsArray   
-    
+ #function to validate email   
+def isValid(email):
+    emailRegularExpression = r"(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])"
+    return re.match(emailRegularExpression, email) is not None
 
 #First menu, includes login
 def startMenu():
@@ -295,15 +305,12 @@ def startMenu():
             begin = False
             logOut()
         elif op == '1':
-            print("Call login function")
             login()
         elif op == '2':
-            print("Call sign up function")
             signUp()
         else:
             errorInvalidOption()
 
-# user is an object with this form
 
 #logged menu
 def homeMenu(user):
