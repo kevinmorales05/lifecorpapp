@@ -7,6 +7,10 @@ pip install firebase_admin
 run python3 main.py
 
 
+In order to test
+1. In the data.json you have information from the Firebase database in order to test login function.
+
+run python3 test.py
 
 
 

@@ -1,0 +1,110 @@
+{
+  "products": {
+    "-NIZVerjsEdhtuTWoNxL": {
+      "description": "Find a job in Korea",
+      "fixedCosts": [
+        {
+          "cost": "1700",
+          "costDescription": "1700",
+          "costName": "Flight ticket",
+          "quantity": "1"
+        },
+        {
+          "cost": "1050",
+          "costDescription": "refugee visa",
+          "costName": "Visa",
+          "quantity": "1"
+        }
+      ],
+      "minimunPersons": 5,
+      "name": "Work in Korea",
+      "target": "Adults",
+      "totalCostPerPerson": 14350,
+      "variableCosts": [
+        {
+          "cost": "30",
+          "costDescription": "breakfast, lunch, dinner",
+          "costName": "Food",
+          "quantity": "7"
+        },
+        {
+          "cost": "20",
+          "costDescription": "extra activities to discover the city",
+          "costName": "Amusement",
+          "quantity": "4"
+        },
+        {
+          "cost": "70",
+          "costDescription": "flight seoul to busan",
+          "costName": "Inter flight",
+          "quantity": "1"
+        }
+      ]
+    },
+    "-NI__GoqCzJeAtQPEd6v": {
+      "description": "Korean classes",
+      "fixedCosts": [
+        {
+          "cost": "12",
+          "costDescription": "clases reales",
+          "costName": "professir",
+          "quantity": "1"
+        }
+      ],
+      "minimunPersons": 6,
+      "name": "Korean",
+      "target": "",
+      "totalCostPerPerson": 43,
+      "variableCosts": [
+        {
+          "cost": "31",
+          "costDescription": "12",
+          "costName": "marcador",
+          "quantity": "3"
+        }
+      ]
+    }
+  },
+  "users": {
+    "-NIJLfM3DjXH0PSGBPy-": {
+      "email": "kmorales@com.com",
+      "name": "Kevin Morales",
+      "pwd": "12345"
+    },
+    "-NIJM3OXKd9iUa1QjIlG": {
+      "email": "denisse@gmail.com",
+      "name": "Denisse Gavilanes",
+      "pwd": "12345"
+    },
+    "-NIJmLueWcRvRv2AYzUM": {
+      "email": "val@com.com",
+      "name": "Valerie Namuche",
+      "pwd": "123456"
+    },
+    "-NIJrW6E55Vj58Van95q": {
+      "email": "k@k.com",
+      "name": "k@k.com",
+      "pwd": "123456"
+    },
+    "-NIK7x-j6AVVsTLXEz-a": {
+      "email": "kev@g.com",
+      "name": "Kev Daniel",
+      "pwd": "123456"
+    },
+    "-NIKBLHdi-JooUHSWUKx": {
+      "email": "kmo@k.com",
+      "name": "kev",
+      "pwd": "kevin"
+    },
+    "-NIZGer3Gm5kqWlNrr11": {
+      "email": "joel@gmail.com",
+      "name": "Joel Morales",
+      "pwd": "joel"
+    },
+    "-NIdAlrVnVk7JCCEU9os": {
+      "email": "cristhian@gmail.com",
+      "name": "Cristhian Mendez",
+      "pwd": "cris"
+    }
+  }
+}

@@ -336,6 +336,7 @@ def homeMenu(user):
             analizeProduct()
         else:
             errorInvalidOption()
+#In order to run test without calling main function
+if __name__ == "__main__":
+    startMenu()
 
-
-startMenu()
